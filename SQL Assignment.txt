@@ -1,0 +1,404 @@
+
+C:\Users\Pranali>mysql --version
+mysql  Ver 8.0.40 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+C:\Users\Pranali>mysql -u root -p
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.40 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| crud_app           |
+| demo               |
+| demo_db            |
+| information_schema |
+| mysql              |
+| online_bookstore   |
+| performance_schema |
+| sys                |
+| ysm_python         |
+| ysm_quiz           |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE companydb;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| companydb          |
+| crud_app           |
+| demo               |
+| demo_db            |
+| information_schema |
+| mysql              |
+| online_bookstore   |
+| performance_schema |
+| sys                |
+| ysm_python         |
+| ysm_quiz           |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> USE companydb;
+Database changed
+mysql> SHOW TABLES;
+Empty set (0.00 sec)
+mysql> CREATE TABLE Employees(EmpID INT PRIMARY KEY,Name VARCHAR(100) NOT NULL,Age INT,Department VARCHAR(50),Salary DECIMAL(10, 2),JoiningDate DATE,City VARCHAR(50));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_companydb |
++---------------------+
+| employees           |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (1, 'Pranali Bhosale', 28, 'Sales', 55000.00, '2022-03-15', 'Baramati');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (2, 'Sneha Kulkarni', 27, 'Finance', 60000.00, '2022-11-05', '
+Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (3, 'Ganesh Gaikwad', 30, 'HR', 70000.00, '2022-09-20', 'Baramati');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (4, 'Aditya Patil', 30, 'IT', 82000.00, '2023-03-12', 'Nas
+hik');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (5, 'Meera Joshi', 24, 'Marketing', 50000.00, '2021-12-10', 'Pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (6, 'Karan Shinde', 35, 'IT', 92000.00, '2020-05-22', 'Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (7, 'Pooja Thakur', 29, 'HR', 45000.00, '2022-02-17', 'Delhi');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (8, 'Rajiv Dhumal', 26, 'Finance', 58000.00, '2023-01-30',
+ 'Bangalore');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (9, 'Anjali Pawar', 31, 'Marketing', 72000.00, '2022-07-05', 'Pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees (EmpID, Name, Age, Department, Salary, JoiningDate, City) VALUES (10, 'Suresh Rathi', 34, 'IT', 67000.00, '2021-11-30', 'Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Employees;
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     5 | Meera Joshi     |   24 | Marketing  | 50000.00 | 2021-12-10  | Pune      |
+|     6 | Karan Shinde    |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai    |
+|     7 | Pooja Thakur    |   29 | HR         | 45000.00 | 2022-02-17  | Delhi     |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+----------+-------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT Name, Department, Salary FROM Employees;
++-----------------+------------+----------+
+| Name            | Department | Salary   |
++-----------------+------------+----------+
+| Pranali Bhosale | Sales      | 55000.00 |
+| Sneha Kulkarni  | Finance    | 60000.00 |
+| Ganesh Gaikwad  | HR         | 70000.00 |
+| Aditya Patil    | IT         | 82000.00 |
+| Meera Joshi     | Marketing  | 50000.00 |
+| Karan Shinde    | IT         | 92000.00 |
+| Pooja Thakur    | HR         | 45000.00 |
+| Rajiv Dhumal    | Finance    | 58000.00 |
+| Anjali Pawar    | Marketing  | 72000.00 |
+| Suresh Rathi    | IT         | 67000.00 |
++-----------------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE Salary > 50000;
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     6 | Karan Shinde    |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai    |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+----------+-------------+-----------+
+8 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE Department = 'IT';
++-------+--------------+------+------------+----------+-------------+--------+
+| EmpID | Name         | Age  | Department | Salary   | JoiningDate | City   |
++-------+--------------+------+------------+----------+-------------+--------+
+|     4 | Aditya Patil |   30 | IT         | 82000.00 | 2023-03-12  | Nashik |
+|     6 | Karan Shinde |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai |
+|    10 | Suresh Rathi |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai |
++-------+--------------+------+------------+----------+-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE Age BETWEEN 25 AND 35;
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     6 | Karan Shinde    |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai    |
+|     7 | Pooja Thakur    |   29 | HR         | 45000.00 | 2022-02-17  | Delhi     |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+----------+-------------+-----------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE JoiningDate > '2022-01-01';
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     7 | Pooja Thakur    |   29 | HR         | 45000.00 | 2022-02-17  | Delhi     |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+7 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE City IN ('Mumbai', 'Pune');
++-------+----------------+------+------------+----------+-------------+--------+
+| EmpID | Name           | Age  | Department | Salary   | JoiningDate | City   |
++-------+----------------+------+------------+----------+-------------+--------+
+|     2 | Sneha Kulkarni |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai |
+|     5 | Meera Joshi    |   24 | Marketing  | 50000.00 | 2021-12-10  | Pune   |
+|     6 | Karan Shinde   |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai |
+|     9 | Anjali Pawar   |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune   |
+|    10 | Suresh Rathi   |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai |
++-------+----------------+------+------------+----------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Department, COUNT(*) AS TotalEmployees
+    -> FROM Employees
+    -> GROUP BY Department;
++------------+----------------+
+| Department | TotalEmployees |
++------------+----------------+
+| Sales      |              1 |
+| Finance    |              2 |
+| HR         |              2 |
+| IT         |              3 |
+| Marketing  |              2 |
++------------+----------------+
+5 rows in set (0.02 sec)
+
+mysql> SELECT Department, AVG(Salary) AS AverageSalary
+    -> FROM Employees
+    -> GROUP BY Department;
++------------+---------------+
+| Department | AverageSalary |
++------------+---------------+
+| Sales      |  55000.000000 |
+| Finance    |  59000.000000 |
+| HR         |  57500.000000 |
+| IT         |  80333.333333 |
+| Marketing  |  61000.000000 |
++------------+---------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Employees;
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     5 | Meera Joshi     |   24 | Marketing  | 50000.00 | 2021-12-10  | Pune      |
+|     6 | Karan Shinde    |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai    |
+|     7 | Pooja Thakur    |   29 | HR         | 45000.00 | 2022-02-17  | Delhi     |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+----------+-------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees
+    -> WHERE Salary = (SELECT MAX(Salary) FROM Employees);
++-------+--------------+------+------------+----------+-------------+--------+
+| EmpID | Name         | Age  | Department | Salary   | JoiningDate | City   |
++-------+--------------+------+------------+----------+-------------+--------+
+|     6 | Karan Shinde |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai |
++-------+--------------+------+------------+----------+-------------+--------+
+1 row in set (0.01 sec)
+
+mysql> SELECT * FROM Employees
+    -> ORDER BY Salary DESC
+    -> LIMIT 3;
++-------+--------------+------+------------+----------+-------------+--------+
+| EmpID | Name         | Age  | Department | Salary   | JoiningDate | City   |
++-------+--------------+------+------------+----------+-------------+--------+
+|     6 | Karan Shinde |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai |
+|     4 | Aditya Patil |   30 | IT         | 82000.00 | 2023-03-12  | Nashik |
+|     9 | Anjali Pawar |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune   |
++-------+--------------+------+------------+----------+-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees
+    -> ORDER BY Name ASC, Salary DESC;
++-------+-----------------+------+------------+----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary   | JoiningDate | City      |
++-------+-----------------+------+------------+----------+-------------+-----------+
+|     4 | Aditya Patil    |   30 | IT         | 82000.00 | 2023-03-12  | Nashik    |
+|     9 | Anjali Pawar    |   31 | Marketing  | 72000.00 | 2022-07-05  | Pune      |
+|     3 | Ganesh Gaikwad  |   30 | HR         | 70000.00 | 2022-09-20  | Baramati  |
+|     6 | Karan Shinde    |   35 | IT         | 92000.00 | 2020-05-22  | Mumbai    |
+|     5 | Meera Joshi     |   24 | Marketing  | 50000.00 | 2021-12-10  | Pune      |
+|     7 | Pooja Thakur    |   29 | HR         | 45000.00 | 2022-02-17  | Delhi     |
+|     1 | Pranali Bhosale |   28 | Sales      | 55000.00 | 2022-03-15  | Baramati  |
+|     8 | Rajiv Dhumal    |   26 | Finance    | 58000.00 | 2023-01-30  | Bangalore |
+|     2 | Sneha Kulkarni  |   27 | Finance    | 60000.00 | 2022-11-05  | Mumbai    |
+|    10 | Suresh Rathi    |   34 | IT         | 67000.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+----------+-------------+-----------+
+10 rows in set (0.01 sec)
+
+mysql> UPDATE Employees
+    -> SET Salary = Salary * 1.10
+    -> WHERE Department = 'IT';
+Query OK, 3 rows affected (0.02 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> SELECT * FROM Employees;
++-------+-----------------+------+------------+-----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary    | JoiningDate | City      |
++-------+-----------------+------+------------+-----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      |  55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    |  60000.00 | 2022-11-05  | Mumbai    |
+|     3 | Ganesh Gaikwad  |   30 | HR         |  70000.00 | 2022-09-20  | Baramati  |
+|     4 | Aditya Patil    |   30 | IT         |  90200.00 | 2023-03-12  | Nashik    |
+|     5 | Meera Joshi     |   24 | Marketing  |  50000.00 | 2021-12-10  | Pune      |
+|     6 | Karan Shinde    |   35 | IT         | 101200.00 | 2020-05-22  | Mumbai    |
+|     7 | Pooja Thakur    |   29 | HR         |  45000.00 | 2022-02-17  | Delhi     |
+|     8 | Rajiv Dhumal    |   26 | Finance    |  58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  |  72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         |  73700.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+-----------+-------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> DELETE FROM Employees
+    -> WHERE Department = 'HR';
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Employees;
++-------+-----------------+------+------------+-----------+-------------+-----------+
+| EmpID | Name            | Age  | Department | Salary    | JoiningDate | City      |
++-------+-----------------+------+------------+-----------+-------------+-----------+
+|     1 | Pranali Bhosale |   28 | Sales      |  55000.00 | 2022-03-15  | Baramati  |
+|     2 | Sneha Kulkarni  |   27 | Finance    |  60000.00 | 2022-11-05  | Mumbai    |
+|     4 | Aditya Patil    |   30 | IT         |  90200.00 | 2023-03-12  | Nashik    |
+|     5 | Meera Joshi     |   24 | Marketing  |  50000.00 | 2021-12-10  | Pune      |
+|     6 | Karan Shinde    |   35 | IT         | 101200.00 | 2020-05-22  | Mumbai    |
+|     8 | Rajiv Dhumal    |   26 | Finance    |  58000.00 | 2023-01-30  | Bangalore |
+|     9 | Anjali Pawar    |   31 | Marketing  |  72000.00 | 2022-07-05  | Pune      |
+|    10 | Suresh Rathi    |   34 | IT         |  73700.00 | 2021-11-30  | Mumbai    |
++-------+-----------------+------+------------+-----------+-------------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Projects(ProjectID INT PRIMARY KEY,ProjectName VARCHAR(100),EmpID INT,StartDate DATE,EndDate DATE,FOREIGN KEY (EmpID) REFERENCES Employees(EmpID));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_companydb |
++---------------------+
+| employees           |
+| projects            |
++---------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO Projects (ProjectID, ProjectName, EmpID, StartDate, EndDate) VALUES (1, 'Website Development', 4, '2023-02-01', '2023-06-30');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Projects (ProjectID, ProjectName, EmpID, StartDate, EndDate) VALUES (2, 'Marketing Campaign', 2, '2023-05-15', '2023-09-15');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Projects (ProjectID, ProjectName, EmpID, StartDate, EndDate) VALUES (3, 'Finance Software', 5, '2023-04-01', '2023-08-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Projects (ProjectID, ProjectName, EmpID, StartDate, EndDate) VALUES(4, 'Sales', 1, '2023-03-10', '2023-07-10');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Projects (ProjectID, ProjectName, EmpID, StartDate, EndDate) VALUES (5, 'Mobile App Development', 6, '2023-07-01', '2023-12-31');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT p.ProjectID, p.ProjectName, e.Name AS EmployeeName, p.StartDate, p.EndDate
+    -> FROM Projects p
+    -> JOIN Employees e ON p.EmpID = e.EmpID;
++-----------+------------------------+-----------------+------------+------------+
+| ProjectID | ProjectName            | EmployeeName    | StartDate  | EndDate    |
++-----------+------------------------+-----------------+------------+------------+
+|         1 | Website Development    | Aditya Patil    | 2023-02-01 | 2023-06-30 |
+|         2 | Marketing Campaign     | Sneha Kulkarni  | 2023-05-15 | 2023-09-15 |
+|         3 | Finance Software       | Meera Joshi     | 2023-04-01 | 2023-08-01 |
+|         4 | Sales                  | Pranali Bhosale | 2023-03-10 | 2023-07-10 |
+|         5 | Mobile App Development | Karan Shinde    | 2023-07-01 | 2023-12-31 |
++-----------+------------------------+-----------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT e.EmpID, e.Name, p.ProjectName, p.StartDate
+    -> FROM Employees e
+    -> INNER JOIN Projects p ON e.EmpID = p.EmpID
+    -> WHERE p.StartDate > '2023-01-01';
++-------+-----------------+------------------------+------------+
+| EmpID | Name            | ProjectName            | StartDate  |
++-------+-----------------+------------------------+------------+
+|     4 | Aditya Patil    | Website Development    | 2023-02-01 |
+|     2 | Sneha Kulkarni  | Marketing Campaign     | 2023-05-15 |
+|     5 | Meera Joshi     | Finance Software       | 2023-04-01 |
+|     1 | Pranali Bhosale | Sales                  | 2023-03-10 |
+|     6 | Karan Shinde    | Mobile App Development | 2023-07-01 |
++-------+-----------------+------------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT e.EmpID, e.Name, e.Department
+    -> FROM Employees e
+    -> LEFT JOIN Projects p ON e.EmpID = p.EmpID
+    -> WHERE p.ProjectID IS NULL;
++-------+--------------+------------+
+| EmpID | Name         | Department |
++-------+--------------+------------+
+|     8 | Rajiv Dhumal | Finance    |
+|     9 | Anjali Pawar | Marketing  |
+|    10 | Suresh Rathi | IT         |
++-------+--------------+------------+
+3 rows in set (0.00 sec)
